@@ -50,7 +50,7 @@ public:
 
 	//TODO should return list of title names (not id's)
 	// return top 20 titles if top wasn't specified
-	const std::list<int> getTitles(int top = 20);
+	const std::list<int> getTitles(unsigned int top = 20);
 
 
 private:

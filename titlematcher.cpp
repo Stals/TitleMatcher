@@ -35,7 +35,7 @@ void TitleMatcher::submitChoice(int choice){
 }
 
 // TODO should return list of title names (not id's)
-const std::list<int> TitleMatcher::getTitles(int top){
+const std::list<int> TitleMatcher::getTitles(unsigned int top){
 	const std::list<int> titles = entityMatcher.getEntities();
 	
 	std::list<int>::const_iterator it = titles.begin();
