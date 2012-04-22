@@ -55,6 +55,9 @@ public:
 
 private:
 	EntityMatcher entityMatcher; //TODO load previous ratings from a file ot db
+	/* FOR TESTING*/ std::vector<Title> titles;
+	// Gets new titles in title_1 and title_2
+	void getNewTitles();
 };
 
 #endif
