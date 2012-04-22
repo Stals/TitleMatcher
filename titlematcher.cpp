@@ -16,6 +16,19 @@ TitleMatcher::~TitleMatcher(){
 
 }
 
+void TitleMatcher::dontKnowTitle(int titleNumber){
+	switch (titleNumber){
+		case 1:
+			getNewTitle(title_1);
+			break;
+		case 2:
+			getNewTitle(title_2);
+			break;
+		//TODO default:
+			//error
+	}
+}
+
 void TitleMatcher::submitChoice(int choice){
 	entityMatcher.match(title_1.id, title_2.id, choice);
 	getNewTitles();
@@ -35,9 +48,15 @@ const std::list<int> TitleMatcher::getTitles(int top){
 	return result;
 }
 
-void TitleMatcher::getNewTitles(){
+void TitleMatcher::getNewTitle(Title& title){
+	// get new titles until they are different
 	do{
-		title_1 = titles[rand() % titles.size()];
-		title_2 = titles[rand() % titles.size()];
+		title = titles[rand() % titles.size()];
 	}while(title_1.id == title_2.id);
+
+}
+
+void TitleMatcher::getNewTitles(){
+	getNewTitle(title_1);
+	getNewTitle(title_2);
 }
