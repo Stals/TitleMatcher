@@ -48,14 +48,13 @@ public:
 	// changes rating for title_1 and title_2 and gets new titles into title_1 and title_2
 	void submitChoice(int choice);
 
-	//TODO should return list of titles (not id's)
-	const std::list<int> getTitles();
+	//TODO should return list of title names (not id's)
+	// return top 20 titles if top wasn't specified
+	const std::list<int> getTitles(int top = 20);
 
 
 private:
 	EntityMatcher entityMatcher; //TODO load previous ratings from a file ot db
-
-
 };
 
 #endif
