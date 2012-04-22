@@ -31,10 +31,13 @@ const std::list<int> TitleMatcher::getTitles(int top){
 			break;
 	}
 	const std::list<int> result(titles.begin(), it);
+	// Get names from a vector before i add db
 	return result;
 }
 
 void TitleMatcher::getNewTitles(){
-	title_1 = titles[rand() % titles.size()];
-	title_2 = titles[rand() % titles.size()];
+	do{
+		title_1 = titles[rand() % titles.size()];
+		title_2 = titles[rand() % titles.size()];
+	}while(title_1.id == title_2.id);
 }
