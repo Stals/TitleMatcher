@@ -1,6 +1,6 @@
 #include "titlematcher.h"
 #include <cstdlib>
-
+#include <tr1/unordered_map>
 TitleMatcher::TitleMatcher(){
 	titles.push_back(Title(1,"Oblivion","2006","RPG","Developer: Bethesda soft."));
 	titles.push_back(Title(2,"Skyrim","2011","RPG","Developer: Bethesda soft."));
@@ -19,9 +19,11 @@ TitleMatcher::~TitleMatcher(){
 void TitleMatcher::dontKnowTitle(int titleNumber){
 	switch (titleNumber){
 		case 1:
+			unknownTitles.insert(title_1.id);
 			getNewTitle(title_1);
 			break;
 		case 2:
+			unknownTitles.insert(title_2.id);
 			getNewTitle(title_2);
 			break;
 		//TODO default:
@@ -49,11 +51,27 @@ const std::list<int> TitleMatcher::getTitles(unsigned int top){
 }
 
 void TitleMatcher::getNewTitle(Title& title){
-	// get new titles until they are different
-	do{
+	// get new titles until they are different and not in a unknown list
+	bool titleFound = true;
+	while(true){
 		title = titles[rand() % titles.size()];
-	}while(title_1.id == title_2.id);
 
+		if(title_1.id == title_2.id){
+			// if titles equals - get new litle
+			std::cout<<title.name<<" - Titles equals, so getting new one."<<std::endl;
+			continue;
+		}
+		
+		if(unknownTitles.find(title.id) != unknownTitles.end()){
+			// if title was found in a unknown list - get new title
+			std::cout<<title.name<<" was found in unknown. Getting new one."<<std::endl;
+			continue;
+		}
+
+		//else: title is ok. break the infinite loop
+		std::cout<<title.name<<" - title is ok"<<std::endl;
+		break;
+	}
 }
 
 void TitleMatcher::getNewTitles(){
