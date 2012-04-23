@@ -50,8 +50,8 @@ public:
 	Title title_1;
 	Title title_2;
 
-	// Adds to unknown list and changes Title 
-	// titleNumber could be 1 or 2
+	// Adds title to unknown list and changes Title for next matching 
+	// titleNumber could be 1 or 2 (for title_1 and title_2)
 	//TODO if title is already in a ratings but user uses dontKnow - what should happen 
 	//	1.(it shouldnt be added to unknown) 
 	//  2. it should be deleted from a rating list and added to the unknownTitles

@@ -26,8 +26,8 @@ void TitleMatcher::dontKnowTitle(int titleNumber){
 			unknownTitles.insert(title_2.id);
 			getNewTitle(title_2);
 			break;
-		//TODO default:
-			//error
+		default:
+			std::cerr<<titleNumber<<" is not allowed in TitleMatcher::dontKnowTitle(). Use 1 for title_1 or 2 for title_2."<<std::endl;
 	}
 }
 
