@@ -50,9 +50,9 @@ const std::list<int> TitleMatcher::getTitles(unsigned int top){
 	return result;
 }
 
+//TODO remove debug messages
 void TitleMatcher::getNewTitle(Title& title){
 	// get new titles until they are different and not in a unknown list
-	bool titleFound = true;
 	while(true){
 		title = titles[rand() % titles.size()];
 
