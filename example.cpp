@@ -1,5 +1,5 @@
-// WARNING^ Later this will be console or GUI. So that i need titlematcher.h to give me some methods to use..
-// it should have oporunity to display discription, genres and such. So it should have access to Entity struct and entities vector.
+// This file is a console example of using titlematcher.h
+//TODO replace with simple exampeles. This code should go to the new git repo.
 
 #include <iostream>
 #include <string>
@@ -17,10 +17,12 @@ void printTitle(Title title){
 }
 
 void printTitles(){
-	//TODO print 1 and 2 for title so that user can understand
+	//TODO print position number.
 	std::cout<<"\n------------------------------------"<<std::endl;
+	std::cout<<"#1 ";
 	printTitle(titleMatcher.title_1);
 	std::cout<<"\n-----------------VS-----------------"<<std::endl;
+	std::cout<<"#2 ";
 	printTitle(titleMatcher.title_2);
 	std::cout<<"\n------------------------------------"<<std::endl;
 }
@@ -55,7 +57,7 @@ void match(){
 	}
 }
 
-
+//TODO get unknown list
 int main(){
 	std::string input;
 
