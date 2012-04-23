@@ -28,10 +28,10 @@ void printTitles(){
 }
 
 void printTop5(){
-	const std::list<int> lst = titleMatcher.getTitles(5);
+	std::list<std::string> lst = titleMatcher.getTitles(5);
 	int i = 1;
 	std::cout<<"Top 5 games:"<<std::endl;
-	for (std::list<int>::const_iterator it = lst.begin(); it!= lst.end(); ++it, ++i){
+	for (std::list<std::string>::iterator it = lst.begin(); it!= lst.end(); ++it, ++i){
 		std::cout<<i<<". "<<(*it)<<std::endl;
 	}
 	std::cout<<std::endl;
