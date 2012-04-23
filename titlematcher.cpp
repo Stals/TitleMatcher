@@ -36,7 +36,7 @@ void TitleMatcher::submitChoice(int choice){
 	getNewTitles();
 }
 
-// TODO should return list of title names (not id's)
+// TODO get names from a db
 std::list<std::string> TitleMatcher::getTitles(unsigned int top){
 	const std::list<int> titles = entityMatcher.getEntities();
 	std::list<std::string> result;
@@ -47,8 +47,6 @@ std::list<std::string> TitleMatcher::getTitles(unsigned int top){
 			break;
 		result.push_back(this->titles[(*it) - 1].name);
 	}
-	//const std::list<int> result(titles.begin(), it);
-	// Get names from a vector before i add db
 	return result;
 }
 
