@@ -1,5 +1,5 @@
 // This file is a console example of using titlematcher.h
-//TODO replace with simple exampeles. This code should go to the new git repo.
+//TODO replace with simple examples. This code should go to the new git repo.
 
 #include <iostream>
 #include <string>

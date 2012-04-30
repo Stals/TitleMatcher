@@ -1,6 +1,6 @@
 /* This is a library for matching two entities and buildng a list of entities sorted by rating (flickchart.com style). 
-You can match any Entites. For example it could be games, films, books, board games and so on.
-This library stores list of entities id's and also moves entities depending on a user choice between them.
+You can match any Entites. For example - games, films, books, board games ect.
+This library stores list of entities id's and also changes entities rating depending on a user choice between them.
 
 Mathcing algorithm:
 	Both entities are on the list:
