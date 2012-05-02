@@ -19,7 +19,8 @@ void printTop5(TitleMatcher& titleMatcher){
 	std::cout<<std::endl;
 }
 
-void print(int num, Title& title){
+
+void printTitle(int num, Title& title){
 	std::cout<<"#"<<num<<" ";
 	std::cout<<title.name<<std::endl;
 	std::cout<<title.date<<std::endl;
@@ -27,20 +28,52 @@ void print(int num, Title& title){
 	std::cout<<title.description<<std::endl;
 }
 
+
+void printTitles(TitleMatcher& titleMatcher){
+	//TODO print position number.
+	std::cout<<"\n------------------------------------"<<std::endl;
+	printTitle(1, titleMatcher.title_1);
+	std::cout<<"\n-----------------VS-----------------"<<std::endl;
+	printTitle(2, titleMatcher.title_2);
+	std::cout<<"\n------------------------------------"<<std::endl;
+}
+
+
+void match(TitleMatcher& titleMatcher){
+	while(true){
+		std::string input;
+
+		printTitles(titleMatcher);
+		std::cout<<"Print '1' or '2' to select that title.\n"
+				   "Or print '-1' and '-2' if you dont know it.\n"
+				   "Print 'quit' to exit: ";
+		std::cin>>input;
+		if(input == "1")
+			titleMatcher.submitChoice(1);
+		else if(input == "2")
+			titleMatcher.submitChoice(2);
+		else if(input == "-1")
+			titleMatcher.dontKnowTitle(1);
+		else if(input == "-2")
+			titleMatcher.dontKnowTitle(2);
+		else if(input == "quit")
+			break;
+	}
+}
+
+
+//TODO get unknown list
 int main(){
 	TitleMatcher titleMatcher;
+	std::string input;
+
 	while(true){
-		print(1, titleMatcher.title_1);
-		std::cout<<std::endl;
-		print(2, titleMatcher.title_2);
-
-		std::cout<<"What is your choice? (1 or 2):";
-		std::string input;
+		std::cout<<"\nPrint 'top' to get top5 titles.\nOr print 'match' to start matching titles: ";
 		std::cin>>input;
-		int choice = (input == "1")? 1 : 2;
-
-		titleMatcher.submitChoice(choice);
-		printTop5(titleMatcher);
+		if(input == "top")
+			printTop5(titleMatcher);
+		else if(input == "match")
+			match(titleMatcher);
 	}
 }
 
