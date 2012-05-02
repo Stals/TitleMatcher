@@ -2,6 +2,7 @@
 #include <cstdlib>
 
 TitleMatcher::TitleMatcher(){
+	db.getTitles();
 	titles.push_back(Title(1,"Oblivion","2006","RPG","Developer: Bethesda soft."));
 	titles.push_back(Title(2,"Skyrim","2011","RPG","Developer: Bethesda soft."));
 	titles.push_back(Title(3,"Morrowind","2000","RPG","Developer: Bethesda soft."));

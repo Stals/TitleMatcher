@@ -7,7 +7,8 @@
 #include <vector>
 #include <list>
 #include <tr1/unordered_set>
-
+#include "db.h"
+#include "title.h"
 #include "entitymatcher.h"
 
 //  TODO 
@@ -23,24 +24,6 @@
 // should store 2 current things to match and change them if needed (if user dont know this title)
 // also unknown titles should save to a file.
 // user of this should have oportunity to get each of titles to show them to end user. (so they should be public or i can make get methods)
-
-struct Title{
-	int id;
-	std::string name;
-	std::string date;
-	std::string genre; //TODO could be several genres and i should be able to make matcher for specific genres
-	std::string description;
-	Title():id(0), name(""), date(""), genre(""), description(""){		
-	}
-
-	Title(int id, std::string name, std::string date, std::string genre, std::string description){
-		this->id = id;
-		this->name = name;
-		this->date = date;
-		this->genre = genre;
-		this->description = description;
-	}
-};
 
 class TitleMatcher{
 public:
@@ -68,7 +51,7 @@ public:
 private:
 	EntityMatcher entityMatcher; //TODO load previous ratings from a file or db
 	/* FOR TESTING*/ std::vector<Title> titles;
-
+	DB db;
 	// stores a list of unknown titles id's
 	// Note: change hash function if needed
 	// unordered_set is used for a fast lookup speed
