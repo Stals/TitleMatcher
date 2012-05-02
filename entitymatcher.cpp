@@ -60,7 +60,9 @@ void EntityMatcher::match(int id_1, int id_2, int choice){
 		// If winner's rating is higher than looser's
 		if(winner.position > looser.position){
 			// winner goes before looser (if looser was #1 winner becomes #1 and looser becomes #2)
-			entities.insert(looser.iter, winner.id);			
+			entities.insert(looser.iter, winner.id);
+			//delete entity from a previous position
+			entities.erase(winner.iter); //TODO mb use splice?			
 		}
 		// else - nothing changes
 	}
