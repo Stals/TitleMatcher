@@ -15,13 +15,11 @@ class DB{
 	
 public:	
 	DB();
-	~DB();
 
-	// 
+	// get all the titles from db
 	std::vector<Title> getTitles();
-	// for example genre == RPG or year >= 2010 or name == Skyrim
+	// for example genre == RPG, year >= 2010 or name == Skyrim (or id = 12 insted)
 	std::vector<Title> getTitlesWhere(std::string condition);
-
 private:
 	 DBClientConnection c;
 };
