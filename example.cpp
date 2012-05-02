@@ -68,7 +68,8 @@ int main(){
 	std::string input;
 
 	while(true){
-		std::cout<<"\nPrint 'top' to get top5 titles.\nOr print 'match' to start matching titles: ";
+		std::cout<<"\nPrint 'top' to get top5 titles.\n"
+				"Or print 'match' to start matching titles: ";
 		std::cin>>input;
 		if(input == "top")
 			printTop5(titleMatcher);
