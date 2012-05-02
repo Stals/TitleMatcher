@@ -10,7 +10,7 @@
 #include "title.h"
 
 void printTop5(TitleMatcher& titleMatcher){
-	std::list<std::string> lst = titleMatcher.getTitles(100);
+	std::list<std::string> lst = titleMatcher.getTitles(5);
 	int i = 1;
 	std::cout<<"Top 5 games:"<<std::endl;
 	for (std::list<std::string>::iterator it = lst.begin(); it!= lst.end(); ++it, ++i){
