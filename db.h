@@ -1,6 +1,5 @@
 #ifndef DB_H
 #define DB_H
-//TODO rename Titles.titles to TitleMatcher.titles
 
 #include <vector>
 #include <string>
