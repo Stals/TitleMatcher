@@ -1,4 +1,5 @@
 #include "db.h"
+
 DB::DB(){
 	c.connect("localhost");
 	// get number of titles on startup so that i dont access db everytime i need to know it.
@@ -26,15 +27,8 @@ Title DB::getTitle(int id){
 	return title;
 }
 
-std::vector<Title> DB::getTitles(){  
-	auto_ptr<DBClientCursor> cursor =
-	c.query("TitleMatcher.titles", BSONObj());
-	while( cursor->more() )
-		cout << cursor->next().toString() << endl;
 
-	return std::vector<Title>();
-}
-
-std::vector<Title> DB::getTitlesWhere(std::string condition){
-	return std::vector<Title>();
+Title DB::getTitleWhere(std::string condition){
+	Title title;
+	return title;
 }
