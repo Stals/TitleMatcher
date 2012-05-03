@@ -1,6 +1,6 @@
 #ifndef DB_H
 #define DB_H
-
+//TODO genre should be a list of strings
 #include <vector>
 #include <string>
 #include <iostream> // for debug
