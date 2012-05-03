@@ -6,6 +6,8 @@
 
 #include <iostream>
 #include <string>
+#include <time.h>
+
 #include "titlematcher.h"
 #include "title.h"
 
@@ -64,6 +66,7 @@ void match(TitleMatcher& titleMatcher){
 
 //TODO get unknown list
 int main(){
+	srand(time(NULL));
 	TitleMatcher titleMatcher;
 	std::string input;
 

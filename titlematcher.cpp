@@ -52,7 +52,7 @@ void TitleMatcher::getNewTitle(Title& title){
 	// get new titles until they are different and not in a unknown list
 	while(true){
 		// get random title from db
-		int randomID = getRandom(1, numOfTitles);
+		int randomID = utils::getRandom(1, numOfTitles);
 		/*DEBUG*/std::cout<<"Trying to get ID: "<<randomID<<std::endl;
 		title = titles_db.getTitle(randomID);
 
