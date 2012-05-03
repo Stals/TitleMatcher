@@ -7,7 +7,6 @@ DB::DB(){
 
 //TODO mb get number of titles every time so that changing the db will effect running program?
 int DB::getNumberOfTitles(){
-	std::cout<<"number of titles = "<<numberOfTitles<<std::endl;
 	return numberOfTitles;
 }
 
