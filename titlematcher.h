@@ -50,8 +50,8 @@ public:
 
 private:
 	EntityMatcher entityMatcher; //TODO load previous ratings from a file or db
-	/* FOR TESTING*/ std::vector<Title> titles;
-	DB db;
+	// Data base that stores titles
+	DB titles_db;
 	// stores a list of unknown titles id's
 	// Note: change hash function if needed
 	// unordered_set is used for a fast lookup speed

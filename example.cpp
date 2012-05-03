@@ -23,7 +23,7 @@ void printTop5(TitleMatcher& titleMatcher){
 void printTitle(int num, Title& title){
 	std::cout<<"#"<<num<<" ";
 	std::cout<<title.name<<std::endl;
-	std::cout<<title.date<<std::endl;
+	std::cout<<title.year<<std::endl;
 	std::cout<<title.genre<<std::endl;
 	std::cout<<title.description<<std::endl;
 }

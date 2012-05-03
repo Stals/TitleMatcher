@@ -1,15 +1,8 @@
 #include "titlematcher.h"
 #include <cstdlib>
 
+#include "utils/random.h"
 TitleMatcher::TitleMatcher(){
-	db.getTitles();
-	titles.push_back(Title(1,"Oblivion","2006","RPG","Developer: Bethesda soft."));
-	titles.push_back(Title(2,"Skyrim","2011","RPG","Developer: Bethesda soft."));
-	titles.push_back(Title(3,"Morrowind","2000","RPG","Developer: Bethesda soft."));
-	titles.push_back(Title(4,"Fallout 3","2008","RPG","Developer: Bethesda soft."));
-	titles.push_back(Title(5,"Burnout: Paradise","","",""));
-	titles.push_back(Title(6,"Legends of Grimrock","2012","Dungeon Crawler",""));
-	titles.push_back(Title(7,"Super Meat Boy","","",""));
 	getNewTitles();
 }
 
@@ -46,16 +39,21 @@ std::list<std::string> TitleMatcher::getTitles(unsigned int top){
 	for(int i = 0; it != titles.end(); ++it, ++i){
 		if (i == top) 
 			break;
-		result.push_back(this->titles[(*it) - 1].name);
+		result.push_back(titles_db.getTitle(*it).name);
 	}
 	return result;
 }
 
 //TODO remove debug messages
 void TitleMatcher::getNewTitle(Title& title){
+	// get number total number of titles in db
+	int numOfTitles = titles_db.getNumberOfTitles();
+
 	// get new titles until they are different and not in a unknown list
 	while(true){
-		title = titles[rand() % titles.size()];
+		// get random title from db
+		int randomID = getRandom(1, numOfTitles);
+		title = titles_db.getTitle(randomID);
 
 		if(title_1.id == title_2.id){
 			// if titles equals - get new litle
