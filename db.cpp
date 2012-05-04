@@ -28,7 +28,11 @@ Title DB::getTitle(int id){
 	title.id = id;
     title.name = p.getStringField("name");
     title.year = p.getIntField("year");
-    title.genre = p.getStringField("genre");
+	
+	std::vector<BSONElement> v = p.getField("genres").Array();
+	for(std::vector<BSONElement>::iterator it = v.begin(); it != v.end(); ++it)
+		title.genres.push_back(it->String());	
+
     title.description = p.getStringField("description");
 	
 	return title;

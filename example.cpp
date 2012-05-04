@@ -26,7 +26,9 @@ void printTitle(int num, Title& title){
 	std::cout<<"#"<<num<<" ";
 	std::cout<<title.name<<std::endl;
 	std::cout<<title.year<<std::endl;
-	std::cout<<title.genre<<std::endl;
+	for (std::vector<std::string>::iterator it = title.genres.begin(); it != title.genres.end(); ++it)
+		std::cout<<*it<<" ";
+	std::cout<<std::endl;
 	std::cout<<title.description<<std::endl;
 }
 
@@ -35,9 +37,9 @@ void printTitles(TitleMatcher& titleMatcher){
 	//TODO print position number.
 	std::cout<<"\n------------------------------------"<<std::endl;
 	printTitle(1, titleMatcher.title_1);
-	std::cout<<"\n-----------------VS-----------------"<<std::endl;
+	std::cout<<"-----------------VS-----------------"<<std::endl;
 	printTitle(2, titleMatcher.title_2);
-	std::cout<<"\n------------------------------------"<<std::endl;
+	std::cout<<"------------------------------------"<<std::endl;
 }
 
 
