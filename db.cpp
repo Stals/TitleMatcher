@@ -1,12 +1,19 @@
 #include "db.h"
 
 DB::DB(){
-	c.connect("localhost");
-	// get number of titles on startup so that i dont access db everytime i need to know it.
-	numberOfTitles = c.count("TitleMatcher.titles");
+	try{
+		c.connect("localhost");
+		// get number of titles on startup so that i dont access db everytime i need to know it.
+		numberOfTitles = c.count("TitleMatcher.titles");
+	}catch( DBException &e ) {
+    	std::cerr<<"Unable to connect to DB"<<std::endl;
+    	std::cerr<<"caught "<<e.what()<<endl;
+  }
+
 }
 
-//TODO mb get number of titles every time so that changing the db will effect running program?
+//TODO mb get number of titles every time so that changing the db will effect running program? 
+// (if programm works and i delete somthing from db, program could try to get that deleted element)
 int DB::getNumberOfTitles(){
 	return numberOfTitles;
 }
@@ -21,7 +28,11 @@ Title DB::getTitle(int id){
 	title.id = id;
     title.name = p.getStringField("name");
     title.year = p.getIntField("year");
-    title.genre = p.getStringField("genre");
+	
+	std::vector<BSONElement> v = p.getField("genres").Array();
+	for(std::vector<BSONElement>::iterator it = v.begin(); it != v.end(); ++it)
+		title.genres.push_back(it->String());	
+
     title.description = p.getStringField("description");
 	
 	return title;
