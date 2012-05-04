@@ -7,7 +7,7 @@ struct Title{
 	int id;
 	std::string name;
 	int year; //TODO mb make month and day?
-	std::vector<std::string> genres; //TODO could be several genres and i should be able to make matcher for specific genres
+	std::vector<std::string> genres;
 	std::string description;
 	Title():id(0), name(""), year(0), genres(), description(""){		
 	}
