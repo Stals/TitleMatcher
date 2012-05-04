@@ -30,10 +30,11 @@ Title DB::getTitle(int id){
     title.year = p.getIntField("year");
     title.description = p.getStringField("description");
 	// get all the genres	
-	std::vector<BSONElement> v = p.getField("genres").Array();
-	for(std::vector<BSONElement>::iterator it = v.begin(); it != v.end(); ++it)
-		title.genres.push_back(it->String());	
-	
+	BSONObjIterator genres (p.getObjectField("genres"));
+	while(genres.more()) {
+    	title.genres.push_back(genres.next().String());
+	}
+
 	return title;
 }
 
