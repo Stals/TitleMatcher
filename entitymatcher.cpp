@@ -70,7 +70,6 @@ void EntityMatcher::match(int id_1, int id_2, int choice){
 		entities.insert(looser.iter, winner.id);
 	}
 
-
 	if(winnerInEntities && !looserInEntities){
 		// looser goes to the end of a list
 		entities.push_back(looser.id);
