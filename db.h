@@ -16,7 +16,7 @@ class DB{
 public:	
 	DB();
 
-	int getNumberOfTitles(); //TODO rename 
+	int getNumberOfTitles(); //TODO rename - countTitles() например
 
 	// returns title from db by its ID.
 	Title getTitle(int id);
